@@ -5,7 +5,7 @@
 
         <img src="../static/icons8-check-100.png" alt="" srcset="" width="150" height="150" v-show="success">
         <img src="../static/icons8-x-100.png" alt="" srcset="" width="150" height="150" v-show="!success">
-        <div class="payment-title" v-show="success">پرداخت با موفقیت انجام شد</div>
+        <div class="payment-title" v-show="success">پرداخت با موفقیت انجام شد لطفا کد زیر را کپی کنید</div>
         <div class="payment-title" v-show="!success">پرداخت با خطا مواجه شد</div>
         <div class="payment-desc" v-show="success">شناسه پرداخت {{ refid }}</div>
         <div class="payment-desc2">انتقال به صفحه اصلی تا {{ delay }} ثانیه</div>
