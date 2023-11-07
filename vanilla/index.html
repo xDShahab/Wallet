@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Pay With Tether</title>
+  </head>
+  <body>
+    <div class="container">
+    
+      <div class="blocks" style="">
+        <div
+          class="block"
+          style="
+            width: 840px;
+            z-index: 100;
+            box-shadow: none;
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+          "
+        >
+          <div id="chart"></div>
+        </div>
+        <div
+          class="block"
+          style="border-top-left-radius: 0; border-bottom-left-radius: 0"
+        >
+          <div class="switch-block">
+            <button class="active">خرید تتر</button>
+          </div>
+          <div class="prices-block">
+            <div class="price spacer">
+              <h3 class="price-label">: قیمت خرید</h3>
+              <h3 class="price-amount" id="buy-price"></h3>
+            </div>
+            <div class="price">
+              <h3 class="price-label">: قیمت فروش</h3>
+              <h3 class="price-amount" id="sell-price"></h3>
+            </div>
+          </div>
+          <form action="">
+          <div class="inputs-block">
+           
+            <div class="input-group">
+              <label for="input1">دریافت میکنید</label>
+              <label for="input1">تتر</label>
+              <input type="text" id="input1" />
+            </div>
+            <div class="input-group">
+              <label for="input2">پرداخت میکنید</label>
+              <label for="input2">تومان</label>
+              <input type="text" id="input2" />
+            </div>
+          </div>
+        </form>
+          <button class="proceed-btn">ادامه خرید</button>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="./script.js"></script>
+  </body>
+</html>

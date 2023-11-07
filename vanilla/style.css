@@ -1,0 +1,167 @@
+@font-face {
+    font-family: morabba;
+    src: url(https://dl.dastyar.io/fonts/v3/MorabbaFaNum/Morabba-Regular.woff) format('woff');
+}
+@font-face {
+    font-family: morabba;
+    font-weight: bold;
+    src: url(https://dl.dastyar.io/fonts/v3/MorabbaFaNum/Morabba-Bold.woff) format('woff');
+}
+#chart{
+    height: 100%;
+}
+body{
+    margin: 0;
+    padding: 0;
+    background-color: rgb(234, 245, 255);
+    
+}
+.blocks{
+   width: fit-content;
+   height: fit-content;
+   display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 3rem #00000033;
+    border-radius: 1rem;
+    
+}
+.container{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+     justify-content: center;
+     align-items: center;
+
+ }
+.block{
+    width: calc(360px - 4rem);
+    height:  calc(580px - 4rem);
+    background-color: #fff;
+    border-radius: 1rem;
+    /* border:  dotted 2px #23232342; */
+    padding: 2rem;
+
+}
+.switch-block{
+    width: calc(100% - 1rem);
+    height: calc(3rem - 1rem);
+    padding: .5rem;
+    display: flex;
+    flex-direction: column;
+    background-color: #e2e2e2;
+    /* border:  dotted 2px #23232342; */
+    border-radius: 2rem;
+}
+.switch-block > button.active{
+    width: 100%;
+    height: 100%;
+    border: none;
+    margin-left: 1px;
+    margin-right: 1px;
+    border-radius: 3rem;
+    /* background-color: #fff; */
+    font-size: large;
+    font-family: morabba;
+    font-weight: bold;
+    color: rgb(101, 101, 255);
+}
+.switch-block > button{
+    width: 100%;
+    height: 100%;
+    border: none;
+    margin-left: 1px;
+    margin-right: 1px;
+    border-radius: 3rem;
+    background-color: transparent;
+    font-size: large;
+    font-family: morabba;
+    font-weight: bold;
+    color: #8f8fd4;
+}
+.prices-block{
+    width: calc(100% - 1rem);
+    margin-top: 4rem;
+    display: flex;
+    border:  dashed 2px #23232342;
+    padding: .5rem;
+    flex-direction: column;
+    border-radius: 1rem;
+    font-family: morabba;
+    font-size: small;
+}
+.prices-block > .price{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+}
+.prices-block > .price > .price-label{
+    color: #bebebe;
+}
+.spacer{
+    border-bottom:dashed 1px #23232325 ;
+}
+.inputs-block{
+
+
+}
+.inputs-block > .input-group{
+    margin-top: 2rem;
+    width: 100%;
+
+}
+
+.inputs-block > .input-group > input{
+    height: 3rem;
+    width: 100%;
+    
+    font-family: morabba;
+    flex: 1;
+    border: 1px solid #c7c7c7;
+    outline: none;
+
+    border-radius: 5px;
+    color: #0c1229;
+    font-size: 17px;
+
+    box-shadow: 0 0 5rem #00000015;
+
+
+}
+
+.input-group > input:focus {
+    border: 1px solid #8f8fd4;
+}
+.input-group > input::placeholder{
+    color: #111111;
+    margin-left: 1rem;
+}
+.input-group > label:nth-child(1){
+    font-family: morabba;
+    float: right;
+    margin-left: 12.5rem;
+    line-height: 1px;
+    margin-top: 1rem;
+    position: absolute;
+    background-color: #fff;
+    height: 1rem;
+    color: #c7c7c7;
+}
+.input-group > label:nth-child(2){
+    font-family: morabba;
+
+}
+.proceed-btn{
+    width: 100%;
+    height: 3.5rem;
+    margin-top: 2rem;
+    border: none;
+    font-family: morabba;
+    font-size: large;
+    background-color: #1683ff;
+    border-radius: 1rem;
+    color: #fff;
+}
+@media min {
+    
+}
