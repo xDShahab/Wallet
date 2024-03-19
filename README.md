@@ -1,4 +1,6 @@
-# Tetherpay-zarin
+# TetherPay-Zarin
+
+Small Clone From https://wallet.ir/
 
 ## Build Setup
 
