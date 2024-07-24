@@ -63,3 +63,37 @@ $.get("https://b.wallet.ir/home/rate", function (data, textStatus, jqXHR) {
   $("#sell-price").html(`${e2p(JSON.stringify(data.sell))} تومان`);
   chart.updateOptions(newOptions, true, true, true);
 });
+// setInterval(() => {
+//   $.get("https://b.wallet.ir/home/rate", function (data, textStatus, jqXHR) {
+//     console.log(data);
+//     let newOptions = {
+//       series: data.chart.buy.series,
+//       chart: {
+//         fontFamily: "morabba",
+//         type: "line",
+//         zoom: {
+//           enabled: false,
+//         },
+//       },
+//       dataLabels: {
+//         enabled: false,
+//       },
+//       stroke: {
+//         curve: "smooth",
+//         // lineCap: 'butt',
+//       },
+//       grid: {
+//         row: {
+//           colors: ["#f3f3f3", "transparent"], // takes an array which will be repeated on columns
+//           opacity: 0.5,
+//         },
+//       },
+
+//       xaxis: data.chart.buy.xaxis,
+//     };
+//     tetherPrice = data.sell;
+//     $("#buy-price").html(`${e2p(JSON.stringify(data.buy))} تومان`);
+//     $("#sell-price").html(`${e2p(JSON.stringify(data.sell))} تومان`);
+//     chart.updateOptions(newOptions);
+//   });
+// }, 30000);

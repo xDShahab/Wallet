@@ -1,40 +1,39 @@
 <template>
+    
   <div class="payment-container">
     <div class="payment-blocks" style="">
-      <div class="payment-block">
-
-        <img src="../static/icons8-check-100.png" alt="" srcset="" width="150" height="150" v-show="success">
-        <img src="../static/icons8-x-100.png" alt="" srcset="" width="150" height="150" v-show="!success">
-        <div class="payment-title" v-show="success">پرداخت با موفقیت انجام شد لطفا کد زیر را کپی کنید</div>
-        <div class="payment-title" v-show="!success">پرداخت با خطا مواجه شد</div>
-        <div class="payment-desc" v-show="success">شناسه پرداخت {{ refid }}</div>
-        <div class="payment-desc2">انتقال به صفحه اصلی تا {{ delay }} ثانیه</div>
-      </div>
+      <div
+        class="payment-block">
+        
+       <img src="../static/icons8-check-100.png" alt="" srcset="" width="150" height="150" v-show="success">
+       <img src="../static/icons8-x-100.png" alt="" srcset="" width="150" height="150" v-show="!success">
+       <div class="payment-title" v-show="success">پرداخت با موفقیت انجام شد</div>
+       <div class="payment-title" v-show="!success">پرداخت با خطا مواجه شد</div>
+       <div class="payment-desc" v-show="success">شناسه پرداخت {{ refid }} این کد را جهت پیگیری حتما یادداشت کنید</div>
+       <div class="payment-desc2">انتقال به صفحه اصلی تا {{ delay }} ثانیه</div>
+    </div>
     </div>
   </div>
 </template>
 <style >
-
 @font-face {
-  font-family: IRANSansX;
-  src: url(https://wallet.ir/fonts/IRANSansX-Regular.24ee6eae.woff) format('woff');
+    font-family: IRANSansX;
+    
+    src: url(https://wallet.ir/fonts/IRANSansX-Regular.24ee6eae.woff) format('woff');
 }
-
 @font-face {
-  font-family: IRANSansX;
-  font-weight: bold;
-  src: url(https://wallet.ir/fonts/IRANSansX-DemiBold.154b8ec0.woff) format('woff');
+    font-family: IRANSansX;
+    font-weight: bold;
+    src: url(https://wallet.ir/fonts/IRANSansX-DemiBold.154b8ec0.woff) format('woff');
 }
-
 @font-face {
-  font-family: IRANSansXFaNum;
-  src: url(https://wallet.ir/fonts/IRANSansXFaNum-Regular.e57613f4.woff) format('woff');
-}
+    font-family: IRANSansXFaNum;
 
-* {
+    src: url(https://wallet.ir/fonts/IRANSansXFaNum-Regular.e57613f4.woff) format('woff');
+}
+*{
   font-family: IRANSansX;
 }
-
 .payment-block-chart {
   width: 840px;
   z-index: 100;
@@ -43,7 +42,6 @@
   background-color: #fff;
   border-bottom-right-radius: 0;
 }
-
 body {
   margin: 0;
   padding: 0;
@@ -61,23 +59,19 @@ body {
   background-color: #181a1b;
 }
 
-.payment-title {
-  font-size: x-large;
-  color: #fff;
-  text-shadow: 0 0 1rem #fff;
+.payment-title{
+    font-size: x-large;
+    color: #fff;
+    text-shadow: 0 0 1rem #fff;
 }
-
-.payment-desc,
-.payment-desc2 {
-  font-size: large;
-  color: #fff;
+.payment-desc, .payment-desc2{
+    font-size: large;
+    color: #fff;
 }
+.payment-desc2{
 
-.payment-desc2 {
-
-  color: #fff;
+    color: #fff;
 }
-
 .payment-container {
   width: 100vw;
   height: 100vh;
@@ -110,7 +104,7 @@ body {
   border-radius: 2rem;
 }
 
-.payment-switch-block>button.active {
+.payment-switch-block > button.active {
   width: 100%;
   height: 100%;
   border: none;
@@ -124,7 +118,7 @@ body {
   color: rgb(101, 101, 255);
 }
 
-.payment-switch-block>button {
+.payment-switch-block > button {
   width: 100%;
   height: 100%;
   border: none;
@@ -150,13 +144,13 @@ body {
   font-size: small;
 }
 
-.payment-prices-block>.price {
+.payment-prices-block > .price {
   display: flex;
   flex-direction: row-reverse;
   justify-content: space-between;
 }
 
-.payment-prices-block>.price>.price-label {
+.payment-prices-block > .price > .price-label {
   color: #bebebe;
 }
 
@@ -164,14 +158,15 @@ body {
   border-bottom: dashed 1px #23232325;
 }
 
-.payment-inputs-block {}
+.payment-inputs-block {
+}
 
-.payment-inputs-block>.input-group {
+.payment-inputs-block > .input-group {
   margin-top: 2rem;
   width: 100%;
 }
 
-.payment-inputs-block>.input-group>input {
+.payment-inputs-block > .input-group > input {
   height: 3rem;
   width: 100%;
 
@@ -187,16 +182,16 @@ body {
   box-shadow: 0 0 5rem #00000015;
 }
 
-.payment-input-group>input:focus {
+.payment-input-group > input:focus {
   border: 1px solid #8f8fd4;
 }
 
-.payment-input-group>input::placeholder {
+.payment-input-group > input::placeholder {
   color: #111111;
   margin-left: 1rem;
 }
 
-.payment-input-group>label:nth-child(1) {
+.payment-input-group > label:nth-child(1) {
   font-family: morabba;
   float: right;
   margin-left: 12.5rem;
@@ -208,7 +203,7 @@ body {
   color: #c7c7c7;
 }
 
-.payment-input-group>label:nth-child(2) {
+.payment-input-group > label:nth-child(2) {
   font-family: morabba;
 }
 
@@ -237,21 +232,19 @@ export default {
       tetherprice: 0,
       input1: '',
       input2: '',
-      refid: '',
-      success: false,
-      delay: 5
+      refid:'',
+      success:false,
+      delay:120
     }
   },
   created() {
-    if (this.$route.query.success === "true") {
-
-      this.refid = this.$route.query.ref
-      this.success = true
+    if (this.$route.query.success==="true") {
+    this.refid=this.$route.query.ref
+        this.success=true
     }
-
-    setTimeout(() => this.$router.push({ path: '/' }), this.delay * 1000);
+    setTimeout( () => this.$router.push({ path: '/'}), this.delay *1000);
     setInterval(() => {
-      this.delay = this.delay - 1
+        this.delay=this.delay-1
     }, 1000);
   },
   methods: {},

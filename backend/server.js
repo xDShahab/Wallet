@@ -7,37 +7,33 @@ const nuxt = new Nuxt(config)
 let payments = []
 const cors = require('cors')
 const { Webhook } = require('discord-webhook-node')
-
+let url = "WEB_URL"
 const hook = new Webhook(
-  'https://discord.com/api/webhooks/1171109522698416178/xZsAFgH7dQkfaUNIjVZnWRFXTQrfHLm6Jnv9sn82X3_to6sshduDS1SaVj5CaugZj178'
+  'DISCORD_WEB_HOOK_FOR_LOG'
 )
-
-hook.setUsername('Dalamber')
+hook.setUsername('Tron Wallet')
 app.use(
   '*',
   cors({
     origin: 'http://localhost:3000',
   })
 )
-
 app.use(express.json())
 const zarinpal = ZarinpalCheckout.create(
-  '3e37bde1-0746-4a2a-9f99-9f27c981ed11',
+  'ZARINPAL_API_CODE',
   false
 )
-
 app.listen(5000, () => {
   console.log('Backend Services Started')
 })
-
 app.post('/createtransaction', async (req, res) => {
   console.log(req.body)
-  zarinpal
-    .PaymentRequest({
+  zarinpal.PaymentRequest({
       Amount: req.body.amount, // In Tomans
-      CallbackURL: `http://${nuxt.options.server.host}:${nuxt.options.server.port}/api/validate`,
-      Description: 'ربات | هی پنل',
-    })
+      CallbackURL: `${url}api/validate`,
+      Description: 'پرداخت از طرف سرویس والت'
+
+})
     .then((response) => {
       if (response.status === 100) {
         payments[response.authority] = req.body.amount
@@ -48,7 +44,6 @@ app.post('/createtransaction', async (req, res) => {
       console.error(err)
     })
 })
-
 app.get('/validate', async (req, res) => {
   console.log(req.query.Authority)
   zarinpal
@@ -59,17 +54,16 @@ app.get('/validate', async (req, res) => {
     .then(function (response) {
       if (response.status == 100) {
 
-        hook.send('New Transaction! Ref ID: ' + response.RefID)
+        hook.send('**پرداخت جدید با کد :** `' + response.RefID + '`\n **مبلغ :** `' + parseInt(payments[req.query.Authority]) + '`')
         res.redirect(
-          `http://${nuxt.options.server.host}:${nuxt.options.server.port}/payment?ref=${response.RefID}&success=true`
+          `${url}payment?ref=${response.RefID}&success=true`
         )
       } else {
-        res.redirect(`http://${nuxt.options.server.host}:${nuxt.options.server.port}/payment?success=false`)
+        res.redirect(`${url}payment?success=false`)
       }
     })
     .catch(function (err) {
       console.log(err)
     })
 })
-
 export default app;

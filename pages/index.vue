@@ -1,25 +1,28 @@
 <template>
   <div class="container">
     <div class="logo-block">
-      <img src="../static/are.png" alt="" srcset=""
-        style="width: 96px;align-self: flex-start;justify-self: left !important;">
+      <img src="../static/Logo.png" alt="" srcset="" style="width: 96px;align-self: flex-start;justify-self: left !important;">
       <div class="title">TRON WALLET</div>
     </div>
     <div class="blocks" style="">
       <div class="block-chart">
-        <ApexCharts type="line" :options="options" :series="series" style="height: 100%;"></ApexCharts>
+        <ApexCharts
+          type="line"
+          :options="options"
+          :series="series"
+          style="height: 100%;"
+        ></ApexCharts>
       </div>
-      <div class="block">
+      <div
+        class="block"
+
+      >
         <div class="switch-block">
           <button class="active">خرید تتر</button>
           <button @click="comingSoon">فروش تتر</button>
         </div>
         <div class="prices-block">
-          <svg data-v-7c7fee7a="" class="tethericon" xmlns="http://www.w3.org/2000/svg" width="18" height="17">
-            <path data-v-7c7fee7a="" fill-rule="evenodd" fill="#21B386"
-              d="M10.829 5.706V3.443h5.045V-.006H2.138v3.449h5.045v2.261c-4.1.194-7.184 1.027-7.184 2.025s3.085 1.832 7.184 2.026v7.251h3.648V9.755C14.923 9.561 18 8.728 18 7.731c0-.998-3.077-1.83-7.169-2.024m0 3.433v-.001c-.103.006-.632.039-1.81.039-.941 0-1.603-.028-1.836-.04v.003C3.562 8.976.858 8.329.858 7.554c0-.774 2.704-1.42 6.327-1.585v2.527c.237.017.915.058 1.852.058 1.125 0 1.69-.048 1.794-.058V5.969c3.615.165 6.313.813 6.313 1.585 0 .771-2.699 1.42-6.313 1.585">
-            </path>
-          </svg>
+          <svg data-v-7c7fee7a="" class="tethericon" xmlns="http://www.w3.org/2000/svg" width="18" height="17"><path data-v-7c7fee7a="" fill-rule="evenodd" fill="#21B386" d="M10.829 5.706V3.443h5.045V-.006H2.138v3.449h5.045v2.261c-4.1.194-7.184 1.027-7.184 2.025s3.085 1.832 7.184 2.026v7.251h3.648V9.755C14.923 9.561 18 8.728 18 7.731c0-.998-3.077-1.83-7.169-2.024m0 3.433v-.001c-.103.006-.632.039-1.81.039-.941 0-1.603-.028-1.836-.04v.003C3.562 8.976.858 8.329.858 7.554c0-.774 2.704-1.42 6.327-1.585v2.527c.237.017.915.058 1.852.058 1.125 0 1.69-.048 1.794-.058V5.969c3.615.165 6.313.813 6.313 1.585 0 .771-2.699 1.42-6.313 1.585"></path></svg>
 
           <div class="price spacer">
             <h3 class="price-label">: قیمت خرید</h3>
@@ -35,20 +38,40 @@
             <div class="input-group">
               <label for="input1">دریافت میکنید</label>
               <label for="input1">تتر</label>
-              <input dir="rtl" type="text" style="font-family: IRANSansXFaNum;" v-model="input1" v-on:input="th_to_tm"
-                @keypress="isNumber($event)" v-bind:disabled="!dataLoaded" />
+              <input
+              dir="rtl"
+                type="text"
+                style="font-family: IRANSansXFaNum;"
+                v-model="input1"
+                v-on:input="th_to_tm"
+
+                v-bind:disabled="!dataLoaded"
+                @beforeinput="isNumber($event)"
+              />
             </div>
             <div class="input-group">
               <label for="input2">پرداخت میکنید</label>
               <label for="input2">تومان</label>
-              <input dir="rtl" style="font-family: IRANSansXFaNum;" type="text" v-model="input2" v-on:input="tm_to_th"
-                @keypress="isNumber($event)" v-bind:disabled="!dataLoaded" />
+              <input
+              dir="rtl"
+              style="font-family: IRANSansXFaNum;"
+                type="text"
+                v-model="input2"
+                v-on:input="tm_to_th"
+                @beforeinput="isNumber($event)"
+                v-bind:disabled="!dataLoaded"
+              />
             </div>
             <div class="input-group">
               <label for="input2" style="  margin-left: 14.5rem;">کیف پول</label>
               <label for="input2">آدرس</label>
-              <input dir="rtl" style="font-family: IRANSansXFaNum;" type="text" v-model="input3"
-                @keypress="isNumber($event)" v-bind:disabled="!dataLoaded" />
+              <input
+              dir="rtl"
+              style="font-family: IRANSansXFaNum;"
+                type="text"
+                v-model="input3"
+                v-bind:disabled="!dataLoaded"
+              />
             </div>
           </div>
         </form>
@@ -61,41 +84,35 @@
 </template>
 <style>
 @font-face {
-  font-family: IRANSansX;
-
-  src: url(https://wallet.ir/fonts/IRANSansX-Regular.24ee6eae.woff) format('woff');
+    font-family: IRANSansX;
+    
+    src: url(https://wallet.ir/fonts/IRANSansX-Regular.24ee6eae.woff) format('woff');
 }
-
 @font-face {
-  font-family: IRANSansX;
-  font-weight: bold;
-  src: url(https://wallet.ir/fonts/IRANSansX-DemiBold.154b8ec0.woff) format('woff');
+    font-family: IRANSansX;
+    font-weight: bold;
+    src: url(https://wallet.ir/fonts/IRANSansX-DemiBold.154b8ec0.woff) format('woff');
 }
-
 @font-face {
-  font-family: IRANSansXFaNum;
+    font-family: IRANSansXFaNum;
 
-  src: url(https://wallet.ir/fonts/IRANSansXFaNum-Regular.e57613f4.woff) format('woff');
+    src: url(https://wallet.ir/fonts/IRANSansXFaNum-Regular.e57613f4.woff) format('woff');
 }
-
-* {
+*{
   font-family: IRANSansX;
 }
-
-.logo-block {
+.logo-block{
   display: flex;
   justify-content: center;
   flex-direction: row;
   align-items: center;
 }
-
-.logo-block .title {
+.logo-block .title{
   color: #dddddd;
   font-family: sans-serif;
   font-weight: bolder;
   margin-left: 1rem;
 }
-
 .block-chart {
   width: 840px;
   z-index: 100;
@@ -141,12 +158,10 @@ body {
   /* border:  dotted 2px #23232342; */
   padding: 2rem;
 }
-
-.tethericon {
+.tethericon{
   position: absolute;
   margin-left: 17.47rem;
 }
-
 .switch-block {
   width: calc(100% - 1rem);
   height: calc(3rem - 1rem);
@@ -158,7 +173,7 @@ body {
   border-radius: 2rem;
 }
 
-.switch-block>button.active {
+.switch-block > button.active {
   width: 45%;
   height: 100%;
   border: none;
@@ -172,7 +187,7 @@ body {
   color: #0668e1;
 }
 
-.switch-block>button {
+.switch-block > button {
   width: 45%;
   height: 100%;
   border: none;
@@ -183,7 +198,7 @@ body {
   font-size: large;
   font-family: morabba;
   font-weight: bold;
-  color: rgba(6, 104, 225, .7);
+  color: rgba(6,104,225,.7);
 }
 
 .prices-block {
@@ -198,15 +213,15 @@ body {
   font-size: small;
 }
 
-.prices-block>.price {
+.prices-block > .price {
   display: flex;
   flex-direction: row-reverse;
-  font-size: small;
+font-size: small;
   justify-content: space-between;
   color: #bebebe;
 }
 
-.prices-block>.price>.price-label {
+.prices-block > .price > .price-label {
   color: #bebebe;
   font-size: small;
 
@@ -216,14 +231,15 @@ body {
   border-bottom: dashed 1px #28314e;
 }
 
-.inputs-block {}
+.inputs-block {
+}
 
-.inputs-block>.input-group {
+.inputs-block > .input-group {
   margin-top: .75rem;
   width: 100%;
 }
 
-.inputs-block>.input-group>input {
+.inputs-block > .input-group > input {
   height: 3rem;
   width: 100%;
 
@@ -239,17 +255,17 @@ body {
   box-shadow: 0 0 5rem #00000015;
 }
 
-.input-group>input:focus {
+.input-group > input:focus {
   border: 1px solid #50619b;
   outline: none;
 }
 
-.input-group>input::placeholder {
+.input-group > input::placeholder {
   color: #fff;
   margin-left: 1rem;
 }
 
-.input-group>label:nth-child(1) {
+.input-group > label:nth-child(1) {
   font-family: morabba;
   float: right;
   margin-left: 12.5rem;
@@ -262,7 +278,7 @@ body {
   color: #c7c7c7;
 }
 
-.input-group>label:nth-child(2) {
+.input-group > label:nth-child(2) {
   font-family: morabba;
   color: #c7c7c7;
 }
@@ -279,30 +295,28 @@ body {
   color: #fff;
   cursor: pointer;
 }
-
 @media (min-width: 1200px) {
-  .block-chart {
+  .block-chart{
     display: block;
   }
-
-  .block {
-    border-top-left-radius: 0 !important;
+  .block{
+    border-top-left-radius: 0 !important; 
     border-bottom-left-radius: 0 !important;
   }
 }
 </style>
 <script>
-const LEFT_TO_RIGHT_MARK = "‎\u200e";
+const LEFT_TO_RIGHT_MARK = "‎\u200e"; 
 import axios from 'axios'
 function numberWithCommas(x) {
-  return `${x}`.replace(LEFT_TO_RIGHT_MARK, "");
+    return `${x}`.replace(LEFT_TO_RIGHT_MARK, "");
 }
 const e2p = (num) => {
   return `${num}`
     .replace(/\d/g, (d) => "۰۱۲۳۴۵۶۷۸۹"[d])
     .replace(/(.)(?=(?:.{3})+$)/g, "$1,");
 };
-
+const p2e = s => s.replace(/[۰-۹]/g, d => '۰۱۲۳۴۵۶۷۸۹'.indexOf(d))
 export default {
   name: 'IndexPage',
   data() {
@@ -315,68 +329,81 @@ export default {
       input1: '',
       input2: '',
       input3: '',
-      input1num: '',
-      input2num: '',
-      dataLoaded: false
+      input1num:'',
+      input2num:'',
+      dataLoaded:false
     }
   },
   methods: {
     handleContinue() {
-      if (this.input3 !== "TD2yUgWKKa7eimWCb6UPH9Yojk6xzSoPDF") return this.$swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: "آدرس والت وارد شده معتبر نیست",
-      });
+      if(`${this.input3}`.length !== 34) return this.$swal.fire({
+  icon: "error",
+  title: "Oops...",
+  text: "آدرس والت وارد شده معتبر نیست",
+});
       if (this.input2 !== '') {
-
+       
         axios
-          .post('api/createtransaction', {
-            amount: parseInt(this.input2num)
+        .post('api/createtransaction',{
+            amount:parseFloat(this.input2num)
           }, {
-            headers: {
-              'Access-Control-Allow-Origin': '*',
-              'Access-Control-Allow-Headers': '*',
-            },
-
-          })
-          .then((response) => {
-            window.location.href = response.data.response
-          })
+          headers: {
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Headers': '*',
+          },
+   
+        })
+        .then((response) => {
+          window.location.href = response.data.response
+        })
       }
-
+      
     },
     th_to_tm() {
-      if (isNaN(this.tetherprice * parseInt(this.input1)))
+      let inp1=p2e(this.input1)
+      let inp2=p2e(this.input2)
+      console.log(inp1);
+      if (isNaN(this.tetherprice * parseFloat(inp1)))
         return (this.input2 = '')
-      this.input1num = this.input1
-      this.input2num = this.tetherprice * parseInt(this.input1)
-      this.input2 = e2p(numberWithCommas(this.tetherprice * parseInt(this.input1)))
-      this.input1 = numberWithCommas(this.input1)
-      // console.log(this.tetherprice * parseInt(this.input1));
+        this.input1num=inp1
+      this.input2num=this.tetherprice * parseFloat(inp1)
+      this.input2 = e2p(numberWithCommas(this.tetherprice * parseFloat(inp1)))
+      this.input1 = numberWithCommas(inp1)
+      // console.log(this.tetherprice * parseFloat(this.input1));
     },
     tm_to_th() {
-      if (isNaN(this.tetherprice * parseInt(this.input2)))
+      let inp1=p2e(this.input1)
+      let inp2=p2e(this.input2)
+      if (isNaN(this.tetherprice * parseFloat(inp2)))
         return (this.input1 = '')
-      this.input2num = parseInt(this.input2)
+      this.input2num=parseFloat(inp2)
       this
-      this.input1 = numberWithCommas(parseInt(this.input2) / this.tetherprice)
-      // console.log(this.tetherprice / parseInt(this.input2));
+      this.input1 = numberWithCommas(parseFloat(inp2) / this.tetherprice)
+
     },
 
-    isNumber: function (evt) {
-      evt = evt ? evt : window.event
-      var charCode = evt.which ? evt.which : evt.keyCode
-      if (
-        charCode > 31 &&
-        (charCode < 48 || charCode > 57) &&
-        charCode !== 46
-      ) {
-        evt.preventDefault()
+    isNumber: function (event) {
+      const persianNumbers = /[\u06F0-\u06F9]/; 
+      const englishNumbers = /\d/; 
+
+      console.log(event.value);
+      const lastChar = event.data && event.data[event.data.length - 1] || '';
+      let evt = event;
+      var charCode = (evt.which) ? evt.which : evt.keyCode;
+      if ((charCode > 31 && (charCode < 48 || charCode > 57)) && charCode !== 46) {
+        evt.preventDefault();
       } else {
+        return true;
+      }
+      if (event.inputType === 'deleteContentBackward' || event.key === '.' || event.inputType === 'deleteContentForward') { return true; }
+      if (!persianNumbers.test(lastChar) && !englishNumbers.test(lastChar)) {
+        event.preventDefault();
+      }else{
+
         return true
       }
     },
-    comingSoon() {
+    comingSoon(){
       alert("بزودی")
     }
   },
@@ -410,45 +437,45 @@ export default {
 
         xaxis: response.data.chart.buy.xaxis,
       }
-      this.dataLoaded = true
+      this.dataLoaded=true
       this.sellprice = e2p(response.data.sell) + 'تومان'
       this.buyprice = e2p(response.data.buy) + 'تومان'
-      this.tetherprice = parseInt(response.data.buy)
+      this.tetherprice = parseFloat(response.data.buy)
     })
     setInterval(() => {
       axios.get('https://b.wallet.ir/home/rate').then((response) => {
-        console.log(response.data)
-        this.series = response.data.chart.buy.series
-        this.options = {
-          chart: {
-            fontFamily: 'morabba',
-            type: 'line',
-            zoom: {
-              enabled: false,
-            },
-          },
-          dataLabels: {
+      console.log(response.data)
+      this.series = response.data.chart.buy.series
+      this.options = {
+        chart: {
+          fontFamily: 'morabba',
+          type: 'line',
+          zoom: {
             enabled: false,
           },
-          stroke: {
-            curve: 'smooth',
-            lineCap: 'butt',
-            width: 2,
+        },
+        dataLabels: {
+          enabled: false,
+        },
+        stroke: {
+          curve: 'smooth',
+          lineCap: 'butt',
+          width: 2,
+        },
+        grid: {
+          row: {
+            colors: ['#1b1d1e', 'transparent'], // takes an array which will be repeated on columns
+            opacity: 0.5,
           },
-          grid: {
-            row: {
-              colors: ['#1b1d1e', 'transparent'], // takes an array which will be repeated on columns
-              opacity: 0.5,
-            },
-          },
+        },
 
-          xaxis: response.data.chart.buy.xaxis,
-        }
-        this.dataLoaded = true
-        this.sellprice = e2p(response.data.sell) + 'تومان'
-        this.buyprice = e2p(response.data.buy) + 'تومان'
-        this.tetherprice = parseInt(response.data.buy)
-      })
+        xaxis: response.data.chart.buy.xaxis,
+      }
+      this.dataLoaded=true
+      this.sellprice = e2p(response.data.sell) + 'تومان'
+      this.buyprice = e2p(response.data.buy) + 'تومان'
+      this.tetherprice = parseFloat(response.data.buy)
+    })
     }, 30000);
     return {}
   },
