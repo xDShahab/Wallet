@@ -18,3 +18,9 @@ $ yarn start
 # generate static project
 $ yarn generate
 ```
+
+# Web
+
+- https://shahabsanei.ir/ 🌐
+
+# Discord : `shahabxd` 💙
